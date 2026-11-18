@@ -76,7 +76,7 @@ footer b{color:var(--ink)}
     <button class="btn go" id="playAll">▶ 從第一支開始看</button>
     <a class="btn" href="https://jerrylai.netlify.app/gallery/" target="_blank" rel="noopener">完整作品網站</a>
   </div>
-  <p class="note">說明：「客戶案」是我實際替客戶做的片子。杜拜建案 17 支我負責腳本、剪輯與字幕；小太陽暖陽心育我負責剪輯、字幕、圖表動畫與聲音整合。「AI 示範」是我用 AI 影像工具加上剪輯、字幕、節奏設計做的示範作品，品牌與場景為示意，不是客戶已上線的廣告。</p>
+  <p class="note">說明：「客戶案」是我實際替客戶做的片子。杜拜建案 17 支我負責腳本、剪輯與字幕；小太陽暖陽心育我負責剪輯、字幕、圖表動畫與聲音整合。「廣告與提案樣片」是提案與比稿用的樣片，命理系列的品牌為示意、旁白為 AI 配音。「Higgsfield 教學與示範」是我自己出鏡、用 Higgsfield 做的換景換裝示範與教學影片。「AI 示範」是我用 AI 影像工具加上剪輯、字幕、節奏設計做的示範作品，品牌與場景為示意，不是客戶已上線的廣告。</p>
 </header>
 
 <nav class="filters" aria-label="作品分類"><div class="wrap" id="filters"></div></nav>
@@ -104,6 +104,7 @@ footer b{color:var(--ink)}
 const B = "https://jerrylai.netlify.app";
 const M = "https://419vive.github.io/metaverse-video-portfolio";
 const mv = (cat,title,f)=>({cat,title,src:`${M}/v/${f}.mp4`,poster:`${M}/v/${f}.jpg`,page:`${M}/`});
+const lv = (cat,title,f)=>({cat,title,src:`v/${f}.mp4`,poster:`v/${f}.jpg`,page:`v/${f}.mp4`});
 const CLIENT = [
  mv("客戶案・建案廣告","Aldar Canopies 建案廣告｜43 秒","ad-aldar-canopies"),
  mv("客戶案・建案廣告","Aldar Sei 建案廣告｜46 秒","ad-aldar-sei"),
@@ -122,8 +123,19 @@ const CLIENT = [
  mv("客戶案・社群短影音","最有價值的常常就是最稀缺的","s11"),
  mv("客戶案・社群短影音","Escrow：你的錢匯到哪裡","s12"),
  mv("客戶案・社群短影音","Safa Gate：公園、運河、大道之間","s13"),
- {cat:"客戶案・教育品牌短影音",title:"小太陽暖陽心育｜001 維維的成長觀察｜110 秒",src:"v/xiaotaiyang-001.mp4",poster:"v/xiaotaiyang-001.jpg",page:"v/xiaotaiyang-001.mp4"},
- {cat:"真人出鏡",title:"iPhone Duo 折疊機｜真人出鏡搞笑短片｜50 秒",src:"v/iphone-duo.mp4",poster:"v/iphone-duo.jpg",page:"v/iphone-duo.mp4"}
+ lv("客戶案・教育品牌短影音","小太陽暖陽心育｜001 維維的成長觀察｜110 秒","xiaotaiyang-001"),
+ lv("客戶案・教育品牌短影音","小太陽暖陽心育｜圖表動畫模板示範","xiaotaiyang-chart-demo"),
+ lv("廣告與提案樣片・廣告片","阿波羅 90 秒廣告片（含字幕）","apollo-ad-90s"),
+ lv("廣告與提案樣片・金融","OK消金｜30 秒提案樣片","ok-finance-30s"),
+ lv("廣告與提案樣片・命理","命理短影音 01｜財運（手繪動畫）","mingli-01-wealth"),
+ lv("廣告與提案樣片・命理","命理短影音 02｜感情（手繪動畫）","mingli-02-love"),
+ lv("廣告與提案樣片・命理","命理短影音 03｜事業（手繪動畫）","mingli-03-career"),
+ lv("廣告與提案樣片・命理","命理短影音 04｜財運（真人質感版）","mingli-04-wealth-live"),
+ lv("廣告與提案樣片・命理","命理短影音 05｜54 秒企劃解說","mingli-05-explainer"),
+ lv("Higgsfield 教學與示範・換景換裝","換背景換衣服｜三格對照示範｜6 秒","swap-compare-6s"),
+ lv("Higgsfield 教學與示範・換景換裝","逐步變化｜原片→換場景→換西裝｜12 秒","swap-steps-12s"),
+ lv("真人出鏡","iPhone Duo 折疊機｜真人出鏡搞笑短片｜50 秒","iphone-duo"),
+ lv("產品示範・Agentic OS","RTI Agentic OS｜3D 示範｜2 分 45 秒","rti-3d-demo"),
 ];
 const DEMO = [
  ["房地產","杜拜預售建案｜日景轉黃昏","property-exterior-day-dusk"],
