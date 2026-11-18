@@ -71,12 +71,12 @@ footer b{color:var(--ink)}
 <header class="wrap">
   <div class="kicker">VIDEO PORTFOLIO ・ 2026</div>
   <h1>賴和鉅<small>JERRY LAI ・ 影音作品集</small></h1>
-  <p class="lede">這裡放了 <b>38 支我做的影片</b>：17 支客戶案、1 支我自己出鏡的短片、20 支 AI 輔助示範。點任何一張就會播放，播完按「下一支」，可以一路看到最後一支。</p>
+  <p class="lede">這裡放了 <b><span id="total"></span> 支我做的影片</b><span id="breakdown"></span>。點任何一張就會播放，播完按「下一支」，可以一路看到最後一支。</p>
   <div class="cta">
     <button class="btn go" id="playAll">▶ 從第一支開始看</button>
     <a class="btn" href="https://jerrylai.netlify.app/gallery/" target="_blank" rel="noopener">完整作品網站</a>
   </div>
-  <p class="note">說明：「客戶案」17 支是我替杜拜建案代理商做的廣告與社群短影音，我負責腳本、剪輯與字幕。「AI 示範」20 支是我用 AI 影像工具加上剪輯、字幕、節奏設計做的示範作品，品牌與場景為示意，不是客戶已上線的廣告。</p>
+  <p class="note">說明：「客戶案」是我實際替客戶做的片子。杜拜建案 17 支我負責腳本、剪輯與字幕；小太陽暖陽心育我負責剪輯、字幕、圖表動畫與聲音整合。「AI 示範」是我用 AI 影像工具加上剪輯、字幕、節奏設計做的示範作品，品牌與場景為示意，不是客戶已上線的廣告。</p>
 </header>
 
 <nav class="filters" aria-label="作品分類"><div class="wrap" id="filters"></div></nav>
@@ -122,6 +122,7 @@ const CLIENT = [
  mv("客戶案・社群短影音","最有價值的常常就是最稀缺的","s11"),
  mv("客戶案・社群短影音","Escrow：你的錢匯到哪裡","s12"),
  mv("客戶案・社群短影音","Safa Gate：公園、運河、大道之間","s13"),
+ {cat:"客戶案・教育品牌短影音",title:"小太陽暖陽心育｜001 維維的成長觀察｜110 秒",src:"v/xiaotaiyang-001.mp4",poster:"v/xiaotaiyang-001.jpg",page:"v/xiaotaiyang-001.mp4"},
  {cat:"真人出鏡",title:"iPhone Duo 折疊機｜真人出鏡搞笑短片｜50 秒",src:"v/iphone-duo.mp4",poster:"v/iphone-duo.jpg",page:"v/iphone-duo.mp4"}
 ];
 const DEMO = [
@@ -168,6 +169,8 @@ W.forEach(w=>{
 });
 
 const grp=w=>w.cat.split("・")[0];
+document.getElementById("total").textContent=W.length;
+document.getElementById("breakdown").textContent="："+[...new Set(W.map(grp))].map(g=>`${g} ${W.filter(w=>grp(w)===g).length} 支`).join("、");
 ["全部",...new Set(W.map(grp))].forEach((c,k)=>{
   const b=document.createElement("button");
   const n=c==="全部"?W.length:W.filter(w=>grp(w)===c).length;
