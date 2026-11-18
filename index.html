@@ -76,7 +76,7 @@ footer b{color:var(--ink)}
     <button class="btn go" id="playAll">▶ 從第一支開始看</button>
     <a class="btn" href="https://jerrylai.netlify.app/gallery/" target="_blank" rel="noopener">完整作品網站</a>
   </div>
-  <p class="note">說明：「客戶案」是我實際替客戶做的片子。杜拜建案 17 支我負責腳本、剪輯與字幕；小太陽暖陽心育我負責剪輯、字幕、圖表動畫與聲音整合。「廣告與提案樣片」是提案與比稿用的樣片，命理系列的品牌為示意、旁白為 AI 配音。「Higgsfield 教學與示範」是我自己出鏡、用 Higgsfield 做的換景換裝示範與教學影片。「AI 示範」是我用 AI 影像工具加上剪輯、字幕、節奏設計做的示範作品，品牌與場景為示意，不是客戶已上線的廣告。</p>
+  <p class="note">說明：「客戶案」是我實際替客戶做的片子。杜拜建案 17 支我負責腳本、剪輯與字幕；小太陽暖陽心育我負責剪輯、字幕、圖表動畫與聲音整合。「廣告與提案樣片」是提案與比稿用的樣片，命理系列的品牌為示意、旁白為 AI 配音。概念片的商品與品牌是我虛構的。「自主創作」是我自己發想的短片與 3D 作品。「Higgsfield 教學與示範」是我自己出鏡、用 Higgsfield 做的換景換裝示範與教學影片。「AI 示範」是我用 AI 影像工具加上剪輯、字幕、節奏設計做的示範作品，品牌與場景為示意，不是客戶已上線的廣告。</p>
 </header>
 
 <nav class="filters" aria-label="作品分類"><div class="wrap" id="filters"></div></nav>
@@ -105,6 +105,7 @@ const B = "https://jerrylai.netlify.app";
 const M = "https://419vive.github.io/metaverse-video-portfolio";
 const mv = (cat,title,f)=>({cat,title,src:`${M}/v/${f}.mp4`,poster:`${M}/v/${f}.jpg`,page:`${M}/`});
 const lv = (cat,title,f)=>({cat,title,src:`v/${f}.mp4`,poster:`v/${f}.jpg`,page:`v/${f}.mp4`});
+const ex = (cat,title,src,poster,page)=>({cat,title,src,poster:`v/poster-${poster}.jpg`,page});
 const CLIENT = [
  mv("客戶案・建案廣告","Aldar Canopies 建案廣告｜43 秒","ad-aldar-canopies"),
  mv("客戶案・建案廣告","Aldar Sei 建案廣告｜46 秒","ad-aldar-sei"),
@@ -123,6 +124,11 @@ const CLIENT = [
  mv("客戶案・社群短影音","最有價值的常常就是最稀缺的","s11"),
  mv("客戶案・社群短影音","Escrow：你的錢匯到哪裡","s12"),
  mv("客戶案・社群短影音","Safa Gate：公園、運河、大道之間","s13"),
+ ex("客戶案・建案廣告","房東五件事｜52 秒","https://jerrylai.netlify.app/case/property/v/landlord5.mp4","landlord5","https://jerrylai.netlify.app/case-property/"),
+ ex("客戶案・建案廣告","DAMAC 是誰｜25 秒","https://jerrylai.netlify.app/case/property/v/damac-who.mp4","damac-who","https://jerrylai.netlify.app/case-property/"),
+ ex("客戶案・建案廣告","Danube A｜商辦稀缺｜30 秒","https://jerrylai.netlify.app/case/property/v/danube-a.mp4","danube-a","https://jerrylai.netlify.app/case-property/"),
+ ex("客戶案・建案廣告","Danube B｜交屋就當房東｜28 秒","https://jerrylai.netlify.app/case/property/v/danube-b.mp4","danube-b","https://jerrylai.netlify.app/case-property/"),
+ ex("客戶案・建案廣告","DAMAC Chelsea Residences｜66 秒","https://jerrylai.netlify.app/case/property/v/damac-chelsea.mp4","damac-chelsea","https://jerrylai.netlify.app/case-property/"),
  lv("客戶案・教育品牌短影音","小太陽暖陽心育｜001 維維的成長觀察｜110 秒","xiaotaiyang-001"),
  lv("客戶案・教育品牌短影音","小太陽暖陽心育｜圖表動畫模板示範","xiaotaiyang-chart-demo"),
  lv("廣告與提案樣片・廣告片","阿波羅 90 秒廣告片（含字幕）","apollo-ad-90s"),
@@ -132,12 +138,27 @@ const CLIENT = [
  lv("廣告與提案樣片・命理","命理短影音 03｜事業（手繪動畫）","mingli-03-career"),
  lv("廣告與提案樣片・命理","命理短影音 04｜財運（真人質感版）","mingli-04-wealth-live"),
  lv("廣告與提案樣片・命理","命理短影音 05｜54 秒企劃解說","mingli-05-explainer"),
+ lv("廣告與提案樣片・概念片","陶色隨行杯｜8 秒動態片","spec-tumbler-8s"),
+ lv("廣告與提案樣片・概念片","Terracotta 01｜暖色調｜12 秒","spec-terracotta-01"),
+ lv("廣告與提案樣片・概念片","Terracotta 02｜靜物造型｜12 秒","spec-terracotta-02"),
+ lv("廣告與提案樣片・概念片","Terracotta 03｜書桌情境｜12 秒","spec-terracotta-03"),
+ lv("廣告與提案樣片・概念片","Terracotta 04｜配樂與音效剪輯版｜15 秒","spec-terracotta-04-sound"),
+ lv("廣告與提案樣片・概念片","Little Fold｜15 秒概念片（含音效）","spec-little-fold"),
+ lv("廣告與提案樣片・概念片","Kiln｜15 秒上市廣告","spec-kiln-15s"),
+ lv("廣告與提案樣片・概念片","球鞋動態展示｜15 秒","spec-sneaker-showreel"),
  lv("Higgsfield 教學與示範・換景換裝","換背景換衣服｜三格對照示範｜6 秒","swap-compare-6s"),
  lv("Higgsfield 教學與示範・換景換裝","逐步變化｜原片→換場景→換西裝｜12 秒","swap-steps-12s"),
  lv("Higgsfield 教學與示範・教學影片","Higgsfield 教學影片完整版｜11 分 16 秒","higgsfield-tutorial-full"),
  lv("真人出鏡","iPhone Duo 折疊機｜真人出鏡搞笑短片｜50 秒","iphone-duo"),
  lv("產品示範・Agentic OS","RTI Agentic OS｜3D 示範｜2 分 45 秒","rti-3d-demo"),
- lv("產品示範・Agentic OS","RTI Agentic OS｜完整操作示範｜23 分 20 秒","rti-demo-full")
+ lv("產品示範・Agentic OS","RTI Agentic OS｜完整操作示範｜23 分 20 秒","rti-demo-full"),
+ ex("自主創作・孫子兵法三部曲","水無常形｜30 秒","https://419vive.github.io/no-fixed-form/assets/no-fixed-form.mp4","no-fixed-form","https://419vive.github.io/no-fixed-form/"),
+ ex("自主創作・孫子兵法三部曲","知地 Know the Ground｜21 秒","https://419vive.github.io/no-fixed-form/assets/know-the-ground.mp4","know-the-ground","https://419vive.github.io/no-fixed-form/"),
+ ex("自主創作・孫子兵法三部曲","讓價值被看見｜21 秒","https://419vive.github.io/no-fixed-form/assets/value-made-visible.mp4","value-made-visible","https://419vive.github.io/no-fixed-form/"),
+ ex("自主創作・動態解說","Beneath the Quiet｜地球科學動態解說｜78 秒","https://419vive.github.io/no-fixed-form/earth-science/beneath-the-quiet.mp4","beneath-the-quiet","https://419vive.github.io/no-fixed-form/earth-science/"),
+ ex("自主創作・3D","AURA 音箱｜3D 產品片","https://jerrylai-3d.netlify.app/assets/aura-speaker.mp4","aura-speaker","https://jerrylai-3d.netlify.app/"),
+ ex("自主創作・3D","ISO 園區｜日轉夜 3D 片","https://jerrylai-3d.netlify.app/assets/iso-campus.mp4","iso-campus","https://jerrylai-3d.netlify.app/"),
+ ex("自主創作・3D","ORBIT｜3D 標誌動態","https://jerrylai-3d.netlify.app/assets/orbit-mark.mp4","orbit-mark","https://jerrylai-3d.netlify.app/")
 ];
 const DEMO = [
  ["房地產","杜拜預售建案｜日景轉黃昏","property-exterior-day-dusk"],
