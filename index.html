@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>賴和鉅 Jerry Lai｜影音作品集</title>
+<meta name="description" content="賴和鉅（Jerry Lai）AI 輔助影音作品 20 件，點一下就能看，可以一支接一支看完。">
+<style>
+:root{
+  --paper:#f3ecdf; --ink:#1d1a16; --soft:#6b6257; --line:#cdbfa8;
+  --card:#fbf7ef; --accent:#c8472b; --tape:#e9d48a; --film:#15130f;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;line-height:1.6;
+  background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1px);background-size:5px 5px}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+header{padding:44px 0 18px}
+.kicker{font-size:13px;letter-spacing:.18em;color:var(--soft)}
+h1{font-family:"Kaiti TC","BiauKai","DFKai-SB",serif;font-weight:400;font-size:clamp(40px,8vw,84px);
+  line-height:1.05;margin:.1em 0 .15em;letter-spacing:.02em}
+h1 small{display:block;font-family:inherit;font-size:.3em;color:var(--soft);letter-spacing:.3em;margin-top:.5em}
+.lede{max-width:44em;font-size:17px;margin:0 0 18px}
+.lede b{background:linear-gradient(transparent 62%,var(--tape) 62%)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 6px}
+button,.btn{font:inherit;cursor:pointer;border:1.5px solid var(--ink);background:var(--card);color:var(--ink);
+  padding:9px 16px;border-radius:999px;text-decoration:none;display:inline-block}
+.btn.go{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+button:focus-visible,.btn:focus-visible,.card:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.note{font-size:13.5px;color:var(--soft);border-left:3px solid var(--line);padding-left:10px;margin:18px 0 0;max-width:52em}
+nav.filters{position:sticky;top:0;z-index:5;background:rgba(243,236,223,.94);backdrop-filter:blur(6px);
+  border-block:1px solid var(--line);margin-top:22px}
+nav.filters .wrap{display:flex;gap:8px;overflow-x:auto;padding-block:10px}
+nav.filters button{white-space:nowrap;padding:6px 14px;font-size:14.5px}
+nav.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+main{padding:26px 0 60px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px 18px}
+.card{position:relative;background:var(--card);border:1px solid var(--line);padding:10px 10px 12px;cursor:pointer;
+  box-shadow:0 1px 0 rgba(0,0,0,.06),0 10px 18px -14px rgba(0,0,0,.45);transition:transform .18s}
+.card:nth-child(3n+1){transform:rotate(-.6deg)} .card:nth-child(3n+2){transform:rotate(.5deg)}
+.card:hover{transform:rotate(0) translateY(-3px)}
+.card::before{content:"";position:absolute;top:-9px;left:50%;width:74px;height:18px;margin-left:-37px;
+  background:var(--tape);opacity:.85;transform:rotate(-2deg)}
+.thumb{position:relative;aspect-ratio:16/10;background:var(--film);overflow:hidden}
+.thumb video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.thumb .play{position:absolute;inset:auto auto 8px 8px;background:rgba(21,19,15,.78);color:#fff;font-size:12.5px;
+  padding:3px 9px;border-radius:999px}
+.num{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--soft);margin-top:9px;display:flex;justify-content:space-between}
+.card h2{font-size:16.5px;font-weight:600;margin:2px 0 0;line-height:1.4}
+.hidden{display:none}
+dialog{border:0;padding:0;background:var(--film);color:#f4efe6;width:min(1000px,100vw - 16px);max-height:calc(100vh - 16px);
+  border-radius:6px}
+dialog::backdrop{background:rgba(12,10,8,.82)}
+.stage{background:#000;display:flex;justify-content:center}
+.stage video{max-width:100%;max-height:70vh;display:block}
+.bar{display:flex;align-items:center;gap:10px;padding:12px 14px;flex-wrap:wrap}
+.bar .t{flex:1 1 220px;min-width:0}
+.bar .t b{display:block;font-size:17px}
+.bar .t span{font-size:13px;color:#b9ad9b}
+.bar button,.bar a{background:transparent;color:#f4efe6;border-color:#8d8170;padding:7px 14px;font-size:14.5px}
+.bar button.next{background:var(--accent);border-color:var(--accent);font-weight:600}
+footer{border-top:1px solid var(--line);padding:22px 0 40px;font-size:14.5px;color:var(--soft)}
+footer b{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.card,.card:hover{transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="kicker">VIDEO PORTFOLIO ・ 2026</div>
+  <h1>賴和鉅<small>JERRY LAI ・ 影音作品集</small></h1>
+  <p class="lede">這裡放了 <b>20 支我做的 AI 輔助影音</b>。點任何一張就會播放，播完按「下一支」，可以一路看到最後一支。</p>
+  <div class="cta">
+    <button class="btn go" id="playAll">▶ 從第一支開始看</button>
+    <a class="btn" href="https://jerrylai.netlify.app/gallery/" target="_blank" rel="noopener">完整作品網站</a>
+  </div>
+  <p class="note">說明：這 20 支是我用 AI 影像工具加上剪輯、字幕、節奏設計做出來的示範作品，品牌與場景為示意，不是客戶已上線的廣告。客戶實際投放的廣告素材因為不在公開頁面上，需要的話我另外提供。</p>
+</header>
+
+<nav class="filters" aria-label="作品分類"><div class="wrap" id="filters"></div></nav>
+
+<main class="wrap">
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer><div class="wrap">
+  <b>賴和鉅 Jerry Lai</b>　高雄　｜　<a href="https://jerrylai.netlify.app/" target="_blank" rel="noopener">完整作品網站與聯絡方式</a>
+</div></footer>
+
+<dialog id="dlg" aria-label="影片播放">
+  <div class="stage"><video id="player" controls playsinline></video></div>
+  <div class="bar">
+    <div class="t"><b id="dTitle"></b><span id="dMeta"></span></div>
+    <button id="prev">← 上一支</button>
+    <button id="next" class="next">下一支 →</button>
+    <a class="btn" id="open" target="_blank" rel="noopener">作品頁</a>
+    <button id="close">關閉</button>
+  </div>
+</dialog>
+
+<script>
+const B = "https://jerrylai.netlify.app";
+const W = [
+ ["房地產","杜拜預售建案｜日景轉黃昏","property-exterior-day-dusk"],
+ ["房地產","杜拜城市情境｜國際地段氛圍","property-dubai-skyline-context"],
+ ["房地產","AI 室內情境｜客廳生活感","property-interior-living"],
+ ["房地產","公設套組｜泳池・健身房・交誼廳","property-amenities-suite"],
+ ["房地產","預售屋資訊圖卡｜付款與交屋流程","property-investment-info-card"],
+ ["房地產","台灣市場版｜建案情境剪輯","property-taiwan-localized-cut"],
+ ["故事短片","賠光之後，他把最後一筆錢買了一片沙","realestate-entrepreneur-story-01"],
+ ["故事短片","又是排隊的一天","realestate-lifestyle-contrast-01"],
+ ["故事短片","會不會漲，沒人能保證；能不能收租，可以先算","realestate-data-trust-01"],
+ ["商品廣告","機械腕錶｜微距材質敘事","luxury-watch-macro"],
+ ["商品廣告","電商商品變體｜三色後製展示","ecommerce-product-variants"],
+ ["商品廣告","概念車夜間揭幕｜輪廓與反射","automotive-night-reveal"],
+ ["餐飲","咖啡流動｜可循環商品鏡頭","food-coffee-pour"],
+ ["餐飲","夜市鐵板料理｜近距離熱氣","food-night-market-sizzle"],
+ ["人物與時尚","時尚主視覺｜ABG 未來造型","beauty-abg-character-motion"],
+ ["科技","SaaS 流程視覺｜抽象模組動態","tech-saas-explainer"],
+ ["旅宿","旅宿抵達體驗｜大廳到套房","hotel-suite-arrival"],
+ ["社群短片","美食對話字幕短片","food-dialogue-10s",1],
+ ["社群短片","旅行自拍敘事短片","travel-selfie-20s",1],
+ ["總覽","跨產業能力總覽｜精選剪輯","multi-industry-capability-reel"]
+].map(([cat,title,slug,noPage],i)=>({cat,title,i,
+  src:`${B}/videos/${slug}.mp4`, page:noPage?`${B}/videos/${slug}.mp4`:`${B}/demo/${slug}/`}));
+
+const grid=document.getElementById("grid"), filters=document.getElementById("filters");
+const dlg=document.getElementById("dlg"), player=document.getElementById("player");
+let list=W, cur=0;
+const pad=n=>String(n).padStart(2,"0");
+
+W.forEach(w=>{
+  const el=document.createElement("article");
+  el.className="card"; el.tabIndex=0; el.setAttribute("role","button");
+  el.setAttribute("aria-label",`播放：${w.title}`); el.dataset.cat=w.cat;
+  el.innerHTML=`<div class="thumb"><video muted playsinline preload="metadata" src="${w.src}#t=0.8"></video><span class="play">▶ 播放</span></div>
+    <div class="num"><span>${pad(w.i+1)} / ${W.length}</span><span>${w.cat}</span></div><h2>${w.title}</h2>`;
+  const go=()=>{ if(!list.includes(w)) list=W; cur=list.indexOf(w); openPlayer(); };
+  el.addEventListener("click",go);
+  el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}});
+  grid.appendChild(el); w.el=el;
+});
+
+["全部",...new Set(W.map(w=>w.cat))].forEach((c,k)=>{
+  const b=document.createElement("button");
+  const n=c==="全部"?W.length:W.filter(w=>w.cat===c).length;
+  b.textContent=`${c} ${n}`; b.setAttribute("aria-pressed",k===0);
+  b.addEventListener("click",()=>{
+    filters.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));
+    list=c==="全部"?W:W.filter(w=>w.cat===c);
+    W.forEach(w=>w.el.classList.toggle("hidden",!list.includes(w)));
+  });
+  filters.appendChild(b);
+});
+
+function show(){
+  const w=list[cur];
+  player.src=w.src; player.play().catch(()=>{});
+  document.getElementById("dTitle").textContent=w.title;
+  document.getElementById("dMeta").textContent=`第 ${cur+1} 支，共 ${list.length} 支　・　${w.cat}`;
+  document.getElementById("open").href=w.page;
+  document.getElementById("next").textContent=cur===list.length-1?"回到第一支 ↺":"下一支 →";
+}
+function openPlayer(){ if(!dlg.open) dlg.showModal(); show(); }
+const step=d=>{cur=(cur+d+list.length)%list.length; show();};
+document.getElementById("next").onclick=()=>step(1);
+document.getElementById("prev").onclick=()=>step(-1);
+document.getElementById("close").onclick=()=>dlg.close();
+document.getElementById("playAll").onclick=()=>{cur=0; openPlayer();};
+player.addEventListener("ended",()=>{ if(cur<list.length-1) step(1); });
+dlg.addEventListener("close",()=>{player.pause(); player.removeAttribute("src"); player.load();});
+dlg.addEventListener("click",e=>{ if(e.target===dlg) dlg.close(); });
+dlg.addEventListener("keydown",e=>{ if(e.key==="ArrowRight") step(1); if(e.key==="ArrowLeft") step(-1); });
+</script>
+</body>
+</html>
