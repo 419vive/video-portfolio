@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>賴和鉅 Jerry Lai｜影音作品集</title>
-<meta name="description" content="賴和鉅（Jerry Lai）AI 輔助影音作品 20 件，點一下就能看，可以一支接一支看完。">
+<meta name="description" content="賴和鉅（Jerry Lai）影音作品 38 件，點一下就能看，可以一支接一支看完。">
+<meta name="robots" content="noindex">
 <style>
 :root{
   --paper:#f3ecdf; --ink:#1d1a16; --soft:#6b6257; --line:#cdbfa8;
@@ -44,7 +45,7 @@ main{padding:26px 0 60px}
 .card::before{content:"";position:absolute;top:-9px;left:50%;width:74px;height:18px;margin-left:-37px;
   background:var(--tape);opacity:.85;transform:rotate(-2deg)}
 .thumb{position:relative;aspect-ratio:16/10;background:var(--film);overflow:hidden}
-.thumb video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.thumb video,.thumb img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
 .thumb .play{position:absolute;inset:auto auto 8px 8px;background:rgba(21,19,15,.78);color:#fff;font-size:12.5px;
   padding:3px 9px;border-radius:999px}
 .num{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--soft);margin-top:9px;display:flex;justify-content:space-between}
@@ -70,12 +71,12 @@ footer b{color:var(--ink)}
 <header class="wrap">
   <div class="kicker">VIDEO PORTFOLIO ・ 2026</div>
   <h1>賴和鉅<small>JERRY LAI ・ 影音作品集</small></h1>
-  <p class="lede">這裡放了 <b>20 支我做的 AI 輔助影音</b>。點任何一張就會播放，播完按「下一支」，可以一路看到最後一支。</p>
+  <p class="lede">這裡放了 <b>38 支我做的影片</b>：17 支客戶案、1 支我自己出鏡的短片、20 支 AI 輔助示範。點任何一張就會播放，播完按「下一支」，可以一路看到最後一支。</p>
   <div class="cta">
     <button class="btn go" id="playAll">▶ 從第一支開始看</button>
     <a class="btn" href="https://jerrylai.netlify.app/gallery/" target="_blank" rel="noopener">完整作品網站</a>
   </div>
-  <p class="note">說明：這 20 支是我用 AI 影像工具加上剪輯、字幕、節奏設計做出來的示範作品，品牌與場景為示意，不是客戶已上線的廣告。客戶實際投放的廣告素材因為不在公開頁面上，需要的話我另外提供。</p>
+  <p class="note">說明：「客戶案」17 支是我替杜拜建案代理商做的廣告與社群短影音，我負責腳本、剪輯與字幕。「AI 示範」20 支是我用 AI 影像工具加上剪輯、字幕、節奏設計做的示範作品，品牌與場景為示意，不是客戶已上線的廣告。</p>
 </header>
 
 <nav class="filters" aria-label="作品分類"><div class="wrap" id="filters"></div></nav>
@@ -101,7 +102,29 @@ footer b{color:var(--ink)}
 
 <script>
 const B = "https://jerrylai.netlify.app";
-const W = [
+const M = "https://419vive.github.io/metaverse-video-portfolio";
+const mv = (cat,title,f)=>({cat,title,src:`${M}/v/${f}.mp4`,poster:`${M}/v/${f}.jpg`,page:`${M}/`});
+const CLIENT = [
+ mv("客戶案・建案廣告","Aldar Canopies 建案廣告｜43 秒","ad-aldar-canopies"),
+ mv("客戶案・建案廣告","Aldar Sei 建案廣告｜46 秒","ad-aldar-sei"),
+ mv("客戶案・建案廣告","DAMAC Lagoon Views 建案廣告｜56 秒","ad-damac-lagoon-views"),
+ mv("客戶案・建案廣告","DAMAC Safa Gate 建案廣告｜59 秒","ad-damac-safa-gate"),
+ mv("客戶案・社群短影音","杜拜真的不靠石油嗎","s01"),
+ mv("客戶案・社群短影音","這場說明會你可以問到什麼","s02"),
+ mv("客戶案・社群短影音","買了房子到開始收租中間空了多久","s03"),
+ mv("客戶案・社群短影音","三個案子三種活法","s04"),
+ mv("客戶案・社群短影音","同一個地址，辦公室和家","s05"),
+ mv("客戶案・社群短影音","屋頂上有一座切爾西的球場","s06"),
+ mv("客戶案・社群短影音","誰在搬進杜拜","s07"),
+ mv("客戶案・社群短影音","公園、運河和那條路","s08"),
+ mv("客戶案・社群短影音","買捷運還是買海景","s09"),
+ mv("客戶案・社群短影音","1200 萬買杜拜一房，五年後","s10"),
+ mv("客戶案・社群短影音","最有價值的常常就是最稀缺的","s11"),
+ mv("客戶案・社群短影音","Escrow：你的錢匯到哪裡","s12"),
+ mv("客戶案・社群短影音","Safa Gate：公園、運河、大道之間","s13"),
+ {cat:"真人出鏡",title:"iPhone Duo 折疊機｜真人出鏡搞笑短片｜50 秒",src:"v/iphone-duo.mp4",poster:"v/iphone-duo.jpg",page:"v/iphone-duo.mp4"}
+];
+const DEMO = [
  ["房地產","杜拜預售建案｜日景轉黃昏","property-exterior-day-dusk"],
  ["房地產","杜拜城市情境｜國際地段氛圍","property-dubai-skyline-context"],
  ["房地產","AI 室內情境｜客廳生活感","property-interior-living"],
@@ -122,8 +145,9 @@ const W = [
  ["社群短片","美食對話字幕短片","food-dialogue-10s",1],
  ["社群短片","旅行自拍敘事短片","travel-selfie-20s",1],
  ["總覽","跨產業能力總覽｜精選剪輯","multi-industry-capability-reel"]
-].map(([cat,title,slug,noPage],i)=>({cat,title,i,
+].map(([cat,title,slug,noPage])=>({cat:"AI 示範・"+cat,title,
   src:`${B}/videos/${slug}.mp4`, page:noPage?`${B}/videos/${slug}.mp4`:`${B}/demo/${slug}/`}));
+const W = [...CLIENT, ...DEMO].map((w,i)=>({...w,i}));
 
 const grid=document.getElementById("grid"), filters=document.getElementById("filters");
 const dlg=document.getElementById("dlg"), player=document.getElementById("player");
@@ -134,7 +158,8 @@ W.forEach(w=>{
   const el=document.createElement("article");
   el.className="card"; el.tabIndex=0; el.setAttribute("role","button");
   el.setAttribute("aria-label",`播放：${w.title}`); el.dataset.cat=w.cat;
-  el.innerHTML=`<div class="thumb"><video muted playsinline preload="metadata" src="${w.src}#t=0.8"></video><span class="play">▶ 播放</span></div>
+  const pic=w.poster?`<img loading="lazy" alt="" src="${w.poster}">`:`<video muted playsinline preload="metadata" src="${w.src}#t=0.8"></video>`;
+  el.innerHTML=`<div class="thumb">${pic}<span class="play">▶ 播放</span></div>
     <div class="num"><span>${pad(w.i+1)} / ${W.length}</span><span>${w.cat}</span></div><h2>${w.title}</h2>`;
   const go=()=>{ if(!list.includes(w)) list=W; cur=list.indexOf(w); openPlayer(); };
   el.addEventListener("click",go);
@@ -142,13 +167,14 @@ W.forEach(w=>{
   grid.appendChild(el); w.el=el;
 });
 
-["全部",...new Set(W.map(w=>w.cat))].forEach((c,k)=>{
+const grp=w=>w.cat.split("・")[0];
+["全部",...new Set(W.map(grp))].forEach((c,k)=>{
   const b=document.createElement("button");
-  const n=c==="全部"?W.length:W.filter(w=>w.cat===c).length;
+  const n=c==="全部"?W.length:W.filter(w=>grp(w)===c).length;
   b.textContent=`${c} ${n}`; b.setAttribute("aria-pressed",k===0);
   b.addEventListener("click",()=>{
     filters.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));
-    list=c==="全部"?W:W.filter(w=>w.cat===c);
+    list=c==="全部"?W:W.filter(w=>grp(w)===c);
     W.forEach(w=>w.el.classList.toggle("hidden",!list.includes(w)));
   });
   filters.appendChild(b);
